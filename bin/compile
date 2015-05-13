@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+mkdir -p "$1/bin/"
+
+build_dir="$1/node_install"
+mkdir -p $build_dir
+
+echo "Downloading and installing node"
+# Download and install
+node_version="0.10.35"
+node_url="http://s3pository.heroku.com/node/v$node_version/node-v$node_version-linux-x64.tar.gz"
+curl $node_url -s -o - | tar xzf - -C $build_dir
+
+# Move node and npm into an easier dir to navigate to and make executable.
+mv $build_dir/node-v$node_version-linux-x64 $build_dir/node
+chmod +x $build_dir/node/bin/*
+PATH=$PATH:$build_dir/node/bin
+
+echo "building web application"
+cd /app/webapp
+npm install
+bundle install
+grunt

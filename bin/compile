@@ -20,7 +20,7 @@ echo "Build Dir is $build_dir"
 mv $build_dir/node-v$node_version-linux-x64/bin/node $1/bin/node
 
 mkdir -p $1/bin/npm/bin
-mv $build_dir/node-v$node_version-linux-x64/bin/npm $1/bin/npm/npm
+mv $build_dir/node-v$node_version-linux-x64/bin/npm $1/bin/npm/bin/npm
 mkdir -p $1/bin/npm/lib
 mv $build_dir/node-v$node_version-linux-x64/lib/node_modules $1/bin/npm/lib/
 

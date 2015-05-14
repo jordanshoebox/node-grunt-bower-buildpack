@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+echo 'node-grunt-bower-buildpack'
+exit 0

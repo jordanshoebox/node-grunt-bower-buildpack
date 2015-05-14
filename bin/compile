@@ -29,10 +29,8 @@ npm install bower -g
 npm install grunt-cli -g
 
 cd ~/
-pwd
-ls
 
-cd ~/webapp
+cd webapp
 npm install
 bower install --config.interactive=false
 grunt

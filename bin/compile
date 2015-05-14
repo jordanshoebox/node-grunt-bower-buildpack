@@ -29,7 +29,12 @@ PATH=$PATH:$1/bin/npm/bin
 npm install bower -g
 npm install grunt-cli -g
 
-cd $1/app/webapp
+cd $1
+
+ls
+
+cd app
+ls
 
 npm install
 bower install --config.interactive=false

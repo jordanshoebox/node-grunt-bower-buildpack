@@ -22,3 +22,17 @@ mv $build_dir/node-v$node_version-linux-x64/bin/npm $1/bin/npm
 
 mkdir -p $1/lib/
 mv $build_dir/node-v$node_version-linux-x64/lib/node_modules $1/lib/
+
+PATH=$PATH:$1/bin
+
+npm install bower -g
+npm install grunt-cli -g
+
+cd ~/
+pwd
+ls
+
+cd ~/webapp
+npm install
+bower install --config.interactive=false
+grunt

@@ -29,8 +29,10 @@ npm install bower -g
 npm install grunt-cli -g
 
 cd ~/
+test=pwd
+echo FILES in $test
+ls
 
-cd webapp
 npm install
 bower install --config.interactive=false
 grunt

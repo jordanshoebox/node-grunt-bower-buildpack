@@ -18,4 +18,4 @@ echo "Build Dir is $build_dir"
 
 # Move node and npm into an easier dir to navigate to and make executable.
 mv $build_dir/node-v$node_version-linux-x64/bin/node $1/bin/node
-mv $build_dir/node-v$node_version-linux-x64/lib/node_modules/npm $1/bin/npm
+mv $build_dir/node-v$node_version-linux-x64/lib/node_modules/npm/bin/npm $1/bin/npm

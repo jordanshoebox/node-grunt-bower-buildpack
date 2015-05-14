@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 set -e
 
 mkdir -p "$1/bin/"
@@ -7,14 +6,11 @@ mkdir -p "$1/bin/"
 build_dir="$1/node_install"
 mkdir -p $build_dir
 
-
 # Download and install
 node_version="0.10.35"
 node_url="http://s3pository.heroku.com/node/v$node_version/node-v$node_version-linux-x64.tar.gz"
 echo "Downloading and installing node from $node_url"
 curl $node_url -s -o - | tar xzf - -C $build_dir
-
-echo "Build Dir is $build_dir"
 
 # Move node and npm into an easier dir to navigate to and make executable.
 mkdir -p $1/bin/npm/bin
@@ -26,11 +22,19 @@ mv $build_dir/node-v$node_version-linux-x64/lib/node_modules $1/bin/npm/lib/
 
 PATH=$PATH:$1/bin/npm/bin
 
+echo "Installing bower..."
 npm install bower -g
+
+echo "Installing grunt..."
 npm install grunt-cli -g
 
 cd $1/webapp
 
+echo "Installing node packages..."
 npm install
+
+echo "Installing bower dependencies..."
 bower install --config.interactive=false
+
+echo "Building app..."
 grunt

@@ -27,12 +27,3 @@ PATH=$PATH:$1/bin
 
 npm install bower -g
 npm install grunt-cli -g
-
-cd ~/
-test=pwd
-echo FILES in $test
-ls
-
-npm install
-bower install --config.interactive=false
-grunt

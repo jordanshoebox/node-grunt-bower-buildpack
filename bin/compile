@@ -7,10 +7,11 @@ mkdir -p "$1/bin/"
 build_dir="$1/node_install"
 mkdir -p $build_dir
 
-echo "Downloading and installing node"
+
 # Download and install
 node_version="0.10.35"
 node_url="http://s3pository.heroku.com/node/v$node_version/node-v$node_version-linux-x64.tar.gz"
+echo "Downloading and installing node from $node_url"
 curl $node_url -s -o - | tar xzf - -C $build_dir
 
 # Move node and npm into an easier dir to navigate to and make executable.
